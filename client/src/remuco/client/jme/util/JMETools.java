@@ -18,31 +18,37 @@
  *   along with Remuco.  If not, see <http://www.gnu.org/licenses/>.
  *   
  */
-package remuco.player;
+package remuco.client.jme.util;
 
-import remuco.comm.BinaryDataExecption;
-import remuco.comm.ISerializable;
-import remuco.comm.SerialAtom;
+import javax.microedition.lcdui.Image;
+
 import remuco.util.Log;
 
-/** Parameters of a control to send to the server. */
-public class ControlParam implements ISerializable {
+/**
+ * Java ME related utility methods.
+ */
+public class JMETools {
 
-	private static final int[] ATOMS_FMT = new int[] { SerialAtom.TYPE_I };
+	/**
+	 * Create an image from its byte array representation.
+	 * 
+	 * @param ay
+	 *            the bate array
+	 * @return an image or <code>null</code> if <em>ay</em> is <code>null</code>
+	 *         or empty or if <em>ay</em> is malformed
+	 */
+	public static Image baToImage(byte ay[]) {
 
-	private final SerialAtom[] atoms;
-
-	public ControlParam(int param) {
-		atoms = SerialAtom.build(ATOMS_FMT);
-		atoms[0].i = param;
-	}
-
-	public SerialAtom[] getAtoms() {
-		return atoms;
-	}
-
-	public void notifyAtomsUpdated() throws BinaryDataExecption {
-		Log.bug("Mar 9, 2009.5:36:51 PM");
+		if (ay != null && ay.length > 0) {
+			try {
+				return Image.createImage(ay, 0, ay.length);
+			} catch (Exception e) {
+				Log.ln("[IT] creating image failed", e);
+				return null;
+			}
+		} else {
+			return null;
+		}
 	}
 
 }

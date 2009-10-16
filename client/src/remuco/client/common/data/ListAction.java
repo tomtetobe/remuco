@@ -18,10 +18,22 @@
  *   along with Remuco.  If not, see <http://www.gnu.org/licenses/>.
  *   
  */
-package remuco.player;
+package remuco.client.common.data;
 
-public interface IItemListener {
+/** Descriptor for a list related action. */
+public class ListAction extends AbstractAction {
 
-	public void notifyItemChanged();
-	
+	public ListAction(int id, String label) {
+		super(id, label);
+	}
+
+	public boolean isItemAction() {
+		return false;
+	}
+
+	public boolean isListAction() {
+		return true;
+	}
+
+
 }

@@ -18,8 +18,17 @@
  *   along with Remuco.  If not, see <http://www.gnu.org/licenses/>.
  *   
  */
-package remuco.player;
+package remuco.client.common.player;
 
+import remuco.client.common.data.ActionParam;
+import remuco.client.common.data.ControlParam;
+import remuco.client.common.data.Item;
+import remuco.client.common.data.ItemList;
+import remuco.client.common.data.PlayerInfo;
+import remuco.client.common.data.Progress;
+import remuco.client.common.data.RequestParam;
+import remuco.client.common.data.State;
+import remuco.client.common.data.Tagging;
 import remuco.comm.BinaryDataExecption;
 import remuco.comm.Connection;
 import remuco.comm.ISerializable;

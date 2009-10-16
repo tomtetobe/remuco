@@ -18,20 +18,10 @@
  *   along with Remuco.  If not, see <http://www.gnu.org/licenses/>.
  *   
  */
-package remuco.player;
+package remuco.client.common.player;
 
-public interface IRequester {
+public interface IProgressListener {
 
-	public void handleFiles(ItemList files);
-
-	public void handleItem(Item item);
-
-	public void handleLibrary(ItemList library);
-
-	public void handlePlaylist(ItemList playlist);
-
-	public void handleQueue(ItemList queue);
+	public void notifyProgressChanged();
 	
-	public void handleSearch(ItemList search);
-
 }

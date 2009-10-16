@@ -18,10 +18,11 @@
  *   along with Remuco.  If not, see <http://www.gnu.org/licenses/>.
  *   
  */
-package remuco.player;
+package remuco.client.common.data;
 
 import java.util.Vector;
 
+import remuco.client.common.player.Feature;
 import remuco.comm.BinaryDataExecption;
 import remuco.comm.ISerializable;
 import remuco.comm.SerialAtom;

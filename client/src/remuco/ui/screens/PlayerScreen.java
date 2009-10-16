@@ -34,12 +34,13 @@ import remuco.Config;
 import remuco.IOptionListener;
 import remuco.MainLoop;
 import remuco.OptionDescriptor;
-import remuco.player.Feature;
-import remuco.player.IItemListener;
-import remuco.player.IProgressListener;
-import remuco.player.IStateListener;
-import remuco.player.Item;
-import remuco.player.Player;
+import remuco.client.common.data.Item;
+import remuco.client.common.player.Feature;
+import remuco.client.common.player.IItemListener;
+import remuco.client.common.player.IProgressListener;
+import remuco.client.common.player.IStateListener;
+import remuco.client.common.player.Player;
+import remuco.client.jme.util.JMETools;
 import remuco.ui.CMD;
 import remuco.ui.CommandList;
 import remuco.ui.IActionListener;
@@ -410,7 +411,7 @@ public final class PlayerScreen extends Canvas implements IItemListener,
 
 		case KeyBindings.ACTION_IMAGE:
 
-			final Image itemImage = player.item.getImg();
+			final Image itemImage = JMETools.baToImage(player.item.getImg());
 			if (itemImage == null) {
 				break; // ignore fullscreen toggles when there is no image
 			}

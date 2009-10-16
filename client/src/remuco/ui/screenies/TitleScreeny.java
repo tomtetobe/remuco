@@ -25,8 +25,9 @@ import javax.microedition.lcdui.Image;
 
 import remuco.Config;
 import remuco.OptionDescriptor;
-import remuco.player.Item;
-import remuco.player.PlayerInfo;
+import remuco.client.common.data.Item;
+import remuco.client.common.data.PlayerInfo;
+import remuco.client.jme.util.JMETools;
 import remuco.ui.Theme;
 
 /**
@@ -160,7 +161,7 @@ public final class TitleScreeny extends Screeny {
 		if (maxImgHeight < 32) // not enough space for an image
 			return;
 
-		Image plobImg = item.getImg();
+		Image plobImg = JMETools.baToImage(item.getImg());
 
 		if (plobImg == null) {
 			// The logo should not get scaled as this drops the alpha channel.

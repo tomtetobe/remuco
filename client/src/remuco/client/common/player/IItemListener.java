@@ -18,43 +18,10 @@
  *   along with Remuco.  If not, see <http://www.gnu.org/licenses/>.
  *   
  */
-package remuco.player;
+package remuco.client.common.player;
 
-public abstract class AbstractAction {
+public interface IItemListener {
 
-	public final int id;
-
-	public final String label;
-
-	private String disabledReason;
-
-	private boolean enabled = true;
-
-	public AbstractAction(int id, String label) {
-
-		this.id = id;
-		this.label = label;
-	}
-
-	public void disbale(String reason) {
-		enabled = false;
-		disabledReason = reason;
-	}
-
-	public void enable() {
-		enabled = true;
-	}
-
-	public String getDisabledReason() {
-		return disabledReason;
-	}
-
-	public boolean isEnabled() {
-		return enabled;
-	}
-
-	public abstract boolean isItemAction();
-
-	public abstract boolean isListAction();
-
+	public void notifyItemChanged();
+	
 }

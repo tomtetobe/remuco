@@ -18,35 +18,23 @@
  *   along with Remuco.  If not, see <http://www.gnu.org/licenses/>.
  *   
  */
-package remuco.comm;
+package remuco.client.common.player;
 
-import remuco.UserException;
-import remuco.client.common.player.Player;
+import remuco.client.common.data.Item;
+import remuco.client.common.data.ItemList;
 
-/**
- * Interface for classes interested in the state of a {@link Connection}.
- * 
- * @see Connection#Connection(String, IConnectionListener, IMessageListener)
- */
-public interface IConnectionListener {
+public interface IRequester {
 
-	/**
-	 * Notifies a successful connection.
-	 * 
-	 * @param player
-	 *            the connected player
-	 */
-	public void notifyConnected(Player player);
+	public void handleFiles(ItemList files);
 
-	/**
-	 * Notifies a disconnection.
-	 * 
-	 * @param url
-	 *            the URL of the broken connection if it is worth trying to
-	 *            reconnect, or <code>null</code> otherwise
-	 * @param reason
-	 *            the user exception describing the reason for disconnecting
-	 */
-	public void notifyDisconnected(String url, UserException reason);
+	public void handleItem(Item item);
+
+	public void handleLibrary(ItemList library);
+
+	public void handlePlaylist(ItemList playlist);
+
+	public void handleQueue(ItemList queue);
+	
+	public void handleSearch(ItemList search);
 
 }
